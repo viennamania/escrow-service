@@ -34,10 +34,11 @@
 
   <style>
     :root {
-      --primary: #0f4c81;
-      --secondary: #0ba37f;
+      --primary: #6366f1;
+      --secondary: #8b5cf6;
+      --accent: #a855f7;
       --dark: #101828;
-      --light: #f5f7fb;
+      --light: #faf5ff;
       --border: #d0d5dd;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -92,10 +93,10 @@
       white-space: nowrap;
     }
     .btn-primary {
-      background: linear-gradient(135deg, var(--primary), #1b7ccc);
+      background: linear-gradient(135deg, var(--primary), var(--accent));
       color: #fff;
     }
-    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 16px rgba(15,76,129,0.25); }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 16px rgba(99,102,241,0.25); }
     .btn-outline {
       border-color: var(--border);
       background: #ffffff;
@@ -105,7 +106,7 @@
     /* Hero */
     .hero {
       padding: 60px 0 50px;
-      background: radial-gradient(circle at top left, #e6f1ff 0, #ffffff 50%);
+      background: radial-gradient(circle at top left, #f3f4f6 0, #ffffff 50%);
     }
     .hero-inner {
       display: grid;
@@ -159,8 +160,8 @@
       align-items: center;
       padding: 4px 10px;
       border-radius: 999px;
-      background: rgba(15,76,129,0.08);
-      color: #93c5fd;
+      background: rgba(139,92,246,0.1);
+      color: #8b5cf6;
       font-size: 0.75rem;
       margin-bottom: 8px;
     }
@@ -262,7 +263,7 @@
       align-items: center;
       padding: 4px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(15,76,129,0.2);
+      border: 1px solid rgba(139,92,246,0.2);
       font-size: 0.78rem;
       color: #374151;
       margin-right: 6px;
