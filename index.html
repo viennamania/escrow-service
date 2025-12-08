@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Guardian Holdings – USDT OTC 에스크로 플랫폼</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="(주)가디언홀딩스 – 안전한 USDT P2P OTC 에스크로 서비스. 프리미엄 장외 거래를 위한 규제 준수형 디지털 자산 플랫폼." />
+  <style>
+    :root {
+      --primary: #0f4c81;
+      --secondary: #0ba37f;
+      --dark: #101828;
+      --light: #f5f7fb;
+      --border: #d0d5dd;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+                   "Noto Sans KR", system-ui, sans-serif;
+      background: #ffffff;
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrapper { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+    header {
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+    }
+    .logo {
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: 0.03em;
+      color: var(--primary);
+    }
+    .logo span { color: var(--secondary); }
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      font-size: 0.9rem;
+    }
+    .nav-links a { opacity: 0.8; }
+    .nav-links a:hover { opacity: 1; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #1b7ccc);
+      color: #fff;
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 16px rgba(15,76,129,0.25); }
+    .btn-outline {
+      border-color: var(--border);
+      background: #ffffff;
+    }
+    .btn-outline:hover { border-color: var(--primary); color: var(--primary); }
+
+    /* Hero */
+    .hero {
+      padding: 60px 0 50px;
+      background: radial-gradient(circle at top left, #e6f1ff 0, #ffffff 50%);
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 40px;
+      align-items: center;
+    }
+    .hero-eyebrow {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 8px;
+    }
+    .hero-title {
+      font-size: 2.3rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+      color: #0b1726;
+    }
+    .hero-highlight { color: var(--primary); }
+    .hero-sub {
+      font-size: 0.98rem;
+      color: #4b5563;
+      margin-bottom: 20px;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 18px; }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 0.8rem;
+      color: #6b7280;
+    }
+    .hero-card {
+      border-radius: 20px;
+      padding: 20px;
+      background: #0f172a;
+      color: #e5e7eb;
+      box-shadow: 0 18px 40px rgba(15,23,42,0.45);
+    }
+    .hero-card h3 { font-size: 0.95rem; margin-bottom: 10px; }
+    .hero-metric {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin: 10px 0;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15,76,129,0.08);
+      color: #93c5fd;
+      font-size: 0.75rem;
+      margin-bottom: 8px;
+    }
+
+    /* Sections */
+    section { padding: 56px 0; }
+    .section-header {
+      margin-bottom: 26px;
+    }
+    .section-eyebrow {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--secondary);
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .section-desc {
+      font-size: 0.9rem;
+      color: #6b7280;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+    .card {
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 18px 16px;
+      background: #fff;
+    }
+    .card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+    }
+    .card p {
+      font-size: 0.86rem;
+      color: #4b5563;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      background: var(--light);
+      color: #4b5563;
+      margin-bottom: 8px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      font-size: 0.85rem;
+    }
+    .step {
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 14px 12px;
+      background: #ffffff;
+    }
+    .step-num {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: var(--primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      margin-bottom: 8px;
+    }
+    .step-title { font-weight: 600; margin-bottom: 4px; }
+
+    .columns-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);
+      gap: 24px;
+    }
+    .list-check li {
+      margin-left: 18px;
+      margin-bottom: 8px;
+      font-size: 0.86rem;
+      color: #4b5563;
+    }
+    .list-check li::marker { content: "• "; }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(15,76,129,0.2);
+      font-size: 0.78rem;
+      color: #374151;
+      margin-right: 6px;
+      margin-bottom: 4px;
+    }
+
+    .notice {
+      font-size: 0.8rem;
+      color: #9ca3af;
+      margin-top: 6px;
+    }
+
+    .faq-item {
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 14px 16px;
+      margin-bottom: 10px;
+      background: #fff;
+    }
+    .faq-q {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .faq-a {
+      font-size: 0.86rem;
+      color: #4b5563;
+    }
+
+    footer {
+      padding: 26px 0 22px;
+      border-top: 1px solid var(--border);
+      background: #f9fafb;
+      font-size: 0.8rem;
+      color: #6b7280;
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: minmax(0,1fr); }
+      .hero { padding-top: 40px; }
+      .grid-3 { grid-template-columns: minmax(0,1fr); }
+      .steps { grid-template-columns: minmax(0,1fr); }
+      .columns-2 { grid-template-columns: minmax(0,1fr); }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrapper nav">
+      <div class="logo">(주) <span>Guardian</span> Holdings</div>
+      <nav class="nav-links">
+        <a href="#features">서비스 특징</a>
+        <a href="#how-it-works">거래 절차</a>
+        <a href="#security">보안·준법</a>
+        <a href="#contact">문의</a>
+      </nav>
+      <a href="#contact" class="btn btn-outline">사전 상담 신청</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrapper hero-inner">
+      <div>
+        <div class="hero-eyebrow">USDT OTC ESCROW PLATFORM</div>
+        <h1 class="hero-title">
+          프리미엄 <span class="hero-highlight">USDT P2P 에스크로</span><br />
+          (주)가디언홀딩스와 함께 안전하게.
+        </h1>
+        <p class="hero-sub">
+          기관·고액·전문투자자를 위한 장외(OTC) USDT 거래.  
+          가디언홀딩스는 고객 간 P2P 거래에 대해 <b>USDT 에스크로</b>를 제공하여,
+          원화 결제 리스크는 최소화하고 디지털 자산 이전의 안전성과 투명성을 강화합니다.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">OTC 상담 요청</a>
+          <a href="#how-it-works" class="btn btn-outline">에스크로 절차 보기</a>
+        </div>
+        <div class="hero-meta">
+          <div>디지털 자산 전문 사업자 (VASP 기준에 맞춘 구조 지향)</div>
+          <div>AML · KYC · Risk Engine 기반 거래 모니터링</div>
+        </div>
+      </div>
+      <div>
+        <div class="hero-card">
+          <div class="hero-tag">USDT Escrow Overview</div>
+          <h3>Guardian USDT Escrow</h3>
+          <div class="hero-metric">Lock → Verify → Release</div>
+          <p style="font-size:0.86rem; color:#e5e7eb;">
+            에스크로 지갑에 예치된 USDT는 거래 완료 전까지 보호되며,
+            거래 당사자의 합의 및 증빙 확인 후에만 해제(Release)됩니다.
+          </p>
+          <ul style="margin-top:10px; font-size:0.8rem; color:#9ca3af; padding-left:18px;">
+            <li>MPC/Multi-Sig 기반 콜드·핫 지갑 분리</li>
+            <li>거래 패턴 기반 이상징후 탐지</li>
+            <li>분쟁 발생 시 전담 심사팀이 증빙 기반 조정</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features">
+    <div class="wrapper">
+      <div class="section-header">
+        <div class="section-eyebrow">Features</div>
+        <h2 class="section-title">USDT OTC 에스크로, 어떤 점이 다를까요?</h2>
+        <p class="section-desc">
+          (주)가디언홀딩스는 단순 코인 전송이 아닌, 장외 거래에 특화된
+          <b>에스크로·위험관리·평판 시스템</b>을 결합한 P2P 환경을 제공합니다.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="pill">01 · Escrow First</div>
+          <h3>USDT 에스크로 기반 보호</h3>
+          <p>
+            판매자가 등록한 USDT는 거래 성사 전에 에스크로 지갑에 잠금(Lock)됩니다.
+            거래가 정상 완료되었을 때에만 Release 되어, 일방적인 코인 미전송·먹튀 리스크를 줄여줍니다.
+          </p>
+        </div>
+        <div class="card">
+          <div class="pill">02 · P2P OTC</div>
+          <h3>기관/고액 거래에 적합한 장외 구조</h3>
+          <p>
+            공개 주문서(Orderbook) 대신 1:1 또는 소수 인원 간의 P2P 매칭을 통해,
+            대량 거래도 시장 가격에 영향을 최소화하면서 처리할 수 있는 OTC 환경을 제공합니다.
+          </p>
+        </div>
+        <div class="card">
+          <div class="pill">03 · Non-KRW Design</div>
+          <h3>KRW 비취급 구조 지향</h3>
+          <p>
+            플랫폼 내에서는 원화 결제 기능을 제공하지 않으며, 회사는 오직
+            가상자산(USDT) 에스크로 및 이전 서비스에만 관여하는 구조를 기반으로 설계됩니다.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how-it-works" style="background:#f9fafb;">
+    <div class="wrapper">
+      <div class="section-header">
+        <div class="section-eyebrow">Process</div>
+        <h2 class="section-title">USDT 에스크로 거래 절차</h2>
+        <p class="section-desc">
+          복잡한 OTC 거래를 4단계로 단순화했습니다.  
+          원화 결제는 항상 회원 간 별도 합의로, 가디언홀딩스는 USDT 에스크로만 제공합니다.
+        </p>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-title">판매자 · 매물 등록</div>
+          <p>
+            판매자는 USDT 수량과 조건을 입력하고, 해당 수량을 에스크로 지갑에 잠금(Lock)합니다.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-title">구매자 · 매칭 및 협의</div>
+          <p>
+            구매자는 매물을 선택하고 판매자와 조건을 협의합니다.  
+            원화 송금 등 결제 채널은 회원 간 별도 합의로 진행됩니다.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-title">증빙 제출 · 검토</div>
+          <p>
+            구매자는 거래 완료를 증빙할 수 있는 자료를 업로드하고,
+            필요 시 가디언홀딩스 심사팀이 이를 검토합니다.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-title">USDT Release</div>
+          <p>
+            거래 당사자 간 합의 및 증빙 확인 후, 에스크로에 잠겨 있던 USDT가
+            구매자 지갑으로 안전하게 이전됩니다.
+          </p>
+        </div>
+      </div>
+
+      <p class="notice">
+        ※ 상기 절차 및 구조는 국내 규제·정책 변화에 따라 변경될 수 있으며,  
+        실제 서비스 도입 시 관련 법령 및 감독당국의 가이드라인 준수를 전제로 합니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- Security & Compliance -->
+  <section id="security">
+    <div class="wrapper">
+      <div class="section-header">
+        <div class="section-eyebrow">Security & Compliance</div>
+        <h2 class="section-title">보안과 준법이 먼저입니다.</h2>
+        <p class="section-desc">
+          디지털 자산 사업에서 가장 중요한 것은 “안전”과 “신뢰”라고 생각합니다.  
+          가디언홀딩스는 기술·운영·정책 측면에서 단계적인 보안·컴플라이언스 체계를 지향합니다.
+        </p>
+      </div>
+
+      <div class="columns-2">
+        <div>
+          <h3 style="font-size:0.96rem; margin-bottom:8px;">보안 및 인프라</h3>
+          <ul class="list-check">
+            <li>MPC / Multi-Sig 기반 에스크로 지갑 구조</li>
+            <li>콜드·핫 월렛 분리 및 다중 승인 프로세스</li>
+            <li>실시간 지갑·거래 이상징후 모니터링</li>
+            <li>5년 이상 거래 로그 및 위험 이벤트 이력 보관</li>
+          </ul>
+
+          <h3 style="font-size:0.96rem; margin:18px 0 8px;">위험·자금세탁방지(AML) 체계</h3>
+          <ul class="list-check">
+            <li>고객 등급 기반 KYC/EDD(강화된 고객확인) 정책 설계</li>
+            <li>거래 패턴 분석을 통한 이상거래 탐지 룰 운영</li>
+            <li>필요 시 관련 법령에 따른 STR/CTR 보고 체계 구축 지향</li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="font-size:0.96rem; margin-bottom:8px;">규제 준수 방향</h3>
+          <p style="font-size:0.86rem; color:#4b5563; margin-bottom:10px;">
+            가디언홀딩스는 국내 가상자산 관련 법령과 감독당국의 지침을 지속적으로 모니터링하며,
+            서비스 설계 단계부터 규제 환경을 반영하는 것을 목표로 합니다.
+          </p>
+          <div>
+            <span class="badge">VASP 관련 규제 환경 모니터링</span>
+            <span class="badge">Non-KRW 구조 설계</span>
+            <span class="badge">리스크 기반 내부통제</span>
+          </div>
+          <p class="notice">
+            * 본 페이지는 서비스 구조 및 방향성에 대한 소개이며,  
+            특정 인허가 취득 여부나 법적 효력을 보증하는 내용이 아닙니다.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" style="background:#0f172a; color:#e5e7eb;">
+    <div class="wrapper">
+      <div class="section-header">
+        <div class="section-eyebrow" style="color:#22c55e;">Contact</div>
+        <h2 class="section-title" style="color:#f9fafb;">USDT OTC / 에스크로 제휴·상담 문의</h2>
+        <p class="section-desc" style="color:#9ca3af;">
+          기관, 법인, 전문투자자, 파트너십 담당자 분들은 아래 연락처로 문의 주시면,  
+          담당자가 상세한 구조 및 협력 가능성을 검토해 드립니다.
+        </p>
+      </div>
+
+      <div class="columns-2">
+        <div>
+          <h3 style="font-size:0.95rem; margin-bottom:8px;">문의 채널</h3>
+          <p style="font-size:0.86rem; color:#d1d5db;">
+            이메일: <b>otc@guardianholdings.co.kr</b><br />
+            상담 가능 시간: 평일 10:00 ~ 17:00 (한국시간 기준)
+          </p>
+          <p class="notice">
+            * 실제 도메인/연락처는 회사 상황에 맞게 교체하여 사용해 주세요.
+          </p>
+        </div>
+        <div>
+          <h3 style="font-size:0.95rem; margin-bottom:8px;">간단 상담 요청 폼 (예시)</h3>
+          <p style="font-size:0.82rem; color:#cbd5f5;">
+            - 회사명 / 성함<br />
+            - 예상 거래 규모(월 단위)<br />
+            - 관심 서비스: USDT 에스크로 / 대량 OTC / 파트너십 등<br />
+            - 연락 가능한 이메일 / 전화번호
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrapper">
+      <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+        <div>© (주)가디언홀딩스 · Guardian Holdings Co., Ltd. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
